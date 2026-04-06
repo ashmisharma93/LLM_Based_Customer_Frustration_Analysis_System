@@ -363,11 +363,11 @@ Weekly monitoring:
 
 ---
 
-## Author & Contact
+### Author & Contact
 
-**Ashmita Sharma**
-🔗 GitHub: https://github.com/ashmisharma93  
-🔗 LinkedIn: https://linkedin.com/in/ashmitasharma93034  
+Ashmita Sharma
+- GitHub: https://github.com/ashmisharma93  
+- LinkedIn: https://linkedin.com/in/ashmitasharma93034  
 ---
 
 ## 📝 License
