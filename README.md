@@ -1,5 +1,5 @@
 # User Frustration Detector 🧠
-Automatically detect frustrated customers from product reviews using fine-tuned BERT-mini. Achieves 99.4% accuracy on keyword-labeled data with real-time predictions via Streamlit web app.
+Automatically detect frustrated customers from product reviews using a fine-tuned BERT-mini model. Includes real-time prediction, bulk review analysis, and trigger-word highlighting through a Streamlit application.
 
 ---
 
