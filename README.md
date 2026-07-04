@@ -1,9 +1,9 @@
-# User Frustration Detector 🧠
+# User Frustration Detector 
 Automatically detect frustrated customers from product reviews using a fine-tuned BERT-mini model. Includes real-time prediction, bulk review analysis, and trigger-word highlighting through a Streamlit application.
 
 ---
 
-## 🎯 Problem Statement
+## Problem Statement
 
 E-commerce platforms receive thousands of product reviews daily. Identifying frustrated customers is critical for:
 - **Customer retention:** Respond quickly to dissatisfied customers
@@ -14,20 +14,20 @@ Manual review analysis takes 200+ hours/month for mid-size platforms. This proje
 
 ---
 
-## ✨ What It Does
+## What It Does
 
 This system analyzes product reviews to automatically predict customer frustration levels.
 
 **Input:** "These earphones keep disconnecting. Wasted my money. Worst purchase ever."  
-**Output:** 🚨 **FRUSTRATED** (99% confidence)  
+**Output:** **FRUSTRATED** (99% confidence)  
 **Analysis:** Highlights trigger words: "disconnecting", "wasted", "worst"
 
 **Input:** "Great sound quality and battery lasts all day!"  
-**Output:** 😊 **NOT FRUSTRATED** (98% confidence)
+**Output:** **NOT FRUSTRATED** (98% confidence)
 
 ---
 
-## 📊 Key Metrics
+## Key Metrics
 
 ### Model Performance
 - **Accuracy:** 99.4% (on keyword-labeled test set, 2,868 reviews)
@@ -49,7 +49,7 @@ This system analyzes product reviews to automatically predict customer frustrati
 
 ---
 
-## 🧠 Model Architecture
+## Model Architecture
 
 ### Why BERT-mini?
 
@@ -81,7 +81,7 @@ Framework: Hugging Face Transformers + PyTorch
 
 ---
 
-## 📁 How It Works
+## How It Works
 
 ### Step 1: Data Preparation
 ```python
@@ -129,7 +129,7 @@ confidence = softmax(output)[1]  # Probability of frustrated class
 
 ---
 
-## 🚀 Features
+## Features
 
 ### Web Application (Streamlit)
 - **Single Review Prediction:** Paste any review, get instant prediction with confidence score
@@ -145,7 +145,7 @@ confidence = softmax(output)[1]  # Probability of frustrated class
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **NLP & Deep Learning:** Hugging Face Transformers, PyTorch
 - **Model:** BERT-mini (fine-tuned)
@@ -156,9 +156,9 @@ confidence = softmax(output)[1]  # Probability of frustrated class
 
 ---
 
-## 📥 Installation & Usage
+## Installation & Usage
 
-### 1️⃣ Clone & Setup
+### 1️ Clone & Setup
 ```bash
 git clone https://github.com/ashmisharma93/User-Frustration-Detector.git
 cd User-Frustration-Detector
@@ -172,14 +172,14 @@ source venv/bin/activate  # Linux/Mac
 pip install -r requirements.txt
 ```
 
-### 2️⃣ Run the Streamlit App
+### 2️ Run the Streamlit App
 ```bash
 cd User_frustration_app
 streamlit run app.py
 ```
 The app opens at `http://localhost:8501`
 
-### 3️⃣ Use the Model
+### 3️ Use the Model
 ```python
 # Single prediction
 from transformers import pipeline
@@ -193,7 +193,7 @@ result = pipe(review)
 print(result)  # {'label': 'LABEL_1', 'score': 0.99}
 ```
 
-### 4️⃣ (Optional) Retrain the Model
+### 4️ (Optional) Retrain the Model
 ```bash
 jupyter notebook User_Frustration_Project(2).ipynb
 # Run all cells to retrain on your data
@@ -201,7 +201,7 @@ jupyter notebook User_Frustration_Project(2).ipynb
 
 ---
 
-## 📖 Dataset & Labeling
+## Dataset & Labeling
 
 ### Data Source
 - **Source:** Wireless earphone reviews (product review corpus)
@@ -239,7 +239,7 @@ This system achieves **99.4% accuracy at recognizing keyword-based frustration p
 
 ---
 
-## 🎓 Model Evaluation
+## Model Evaluation
 
 ### Training Progress
 ```
@@ -256,17 +256,17 @@ Epoch 3: Accuracy 99.41%, F1: 0.988 ← Final Model
 
 ### Example Predictions
 
-**✅ Correctly Frustrated (High Confidence)**
+** Correctly Frustrated (High Confidence)**
 - "This product is useless and keeps disconnecting. Very disappointed."
 - Prediction: **FRUSTRATED** (Confidence: 99%)
 - Trigger: Multiple frustration keywords, emotional language
 
-**✅ Correctly Not Frustrated (High Confidence)**
+** Correctly Not Frustrated (High Confidence)**
 - "Absolutely love this earphone. Great quality and battery life!"
 - Prediction: **NOT FRUSTRATED** (Confidence: 98%)
 - Trigger: Positive words, no frustration signals
 
-**⚠️ Edge Cases (Lower Confidence)**
+** Edge Cases (Lower Confidence)**
 - "Sound quality is perfect but battery dies too fast."
 - Prediction: **MIXED** (Confidence: 52%)
 - Issue: Both positive ("perfect") and negative ("dies") signals
@@ -274,20 +274,20 @@ Epoch 3: Accuracy 99.41%, F1: 0.988 ← Final Model
 
 ---
 
-## ⚠️ Limitations & Realistic Expectations
+## Limitations & Realistic Expectations
 
 ### What Works Well
-✅ Detects explicit frustration keywords and negative sentiment  
-✅ Fast predictions (<200ms per review)  
-✅ Handles product reviews with decent accuracy  
-✅ Useful as a first-pass filter (reduces manual work)  
+- Detects explicit frustration keywords and negative sentiment  
+- Fast predictions (<200ms per review)  
+- Handles product reviews with decent accuracy  
+- Useful as a first-pass filter (reduces manual work)  
 
 ### What Doesn't Work Well
-❌ **Sarcasm:** "Yeah, amazing build quality... sure" (predicts frustrated, actually satisfied)  
-❌ **Subtle frustration:** "Could be better" (understands directly)  
-❌ **Mixed sentiment:** "Good sound but terrible battery" (may classify as one or other)  
-❌ **Language variation:** Slang or non-English phrasing  
-❌ **Context-dependent frustration:** "I will waste no more time on this excellent product"  
+- **Sarcasm:** "Yeah, amazing build quality... sure" (predicts frustrated, actually satisfied)  
+- **Subtle frustration:** "Could be better" (understands directly)  
+- **Mixed sentiment:** "Good sound but terrible battery" (may classify as one or other)  
+- **Language variation:** Slang or non-English phrasing  
+- **Context-dependent frustration:** "I will waste no more time on this excellent product"  
 
 ### Architectural Limitations
 - **Domain-specific:** Trained only on earphone reviews. Accuracy may differ for other products
@@ -305,7 +305,7 @@ For production use:
 
 ---
 
-## 🌍 Real-World Applications
+## Real-World Applications
 
 ### E-commerce Platforms (Amazon, Flipkart, etc.)
 ```
@@ -342,7 +342,7 @@ Weekly monitoring:
 
 ---
 
-## 🔄 Future Improvements
+## Future Improvements
 
 - [ ] Multi-class classification: Frustrated vs Angry vs Neutral vs Satisfied
 - [ ] Aspect-based sentiment: Which feature caused frustration?
@@ -354,7 +354,7 @@ Weekly monitoring:
 
 ---
 
-## 📚 References & Learning Resources
+## References & Learning Resources
 
 - **BERT Paper:** https://arxiv.org/abs/1810.04805 - "BERT: Pre-training of Deep Bidirectional Transformers..."
 - **Hugging Face Guide:** https://huggingface.co/docs/transformers/tasks/sequence_classification
@@ -368,26 +368,4 @@ Weekly monitoring:
 **Ashmita Sharma**
 - GitHub: https://github.com/ashmisharma93  
 - LinkedIn: https://linkedin.com/in/ashmitasharma93034  
----
-
-## 📝 License
-
-MIT License - Feel free to use this project for personal or commercial purposes.
-
----
-
-## 💡 Key Takeaways
-
-**What I built:** An automated system to detect frustrated customers from reviews using fine-tuned BERT.
-
-**What I learned:**
-1. **Data labeling matters:** High accuracy doesn't mean real-world performance if labels are rule-based
-2. **Transfer learning is powerful:** Pre-trained BERT saves massive training time
-3. **Model optimization:** BERT-mini gives 99% of BERT-base performance at 25% the size
-4. **Honest evaluation:** Acknowledging limitations shows maturity more than claiming perfection
-5. **Deployment is hard:** Getting the model in production (Streamlit) taught me practical ML skills
-
-**For interview discussions:**  
-I'm proud of this project not because of the 99.4% accuracy number, but because I understand *why* that number is high, what it really means, and what real-world deployment would require. That understanding is worth more than perfect metrics.
-
 ---
