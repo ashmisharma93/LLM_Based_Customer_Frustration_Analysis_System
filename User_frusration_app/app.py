@@ -37,12 +37,12 @@ def load_model():
 pipe, tokenizer = load_model()
 
 # ======================= APP UI ============================
-st.set_page_config(page_title="User Frustration Predictor", page_icon="😠", layout="centered")
-st.title("🤖 User Frustration Prediction")
+st.set_page_config(page_title="User Frustration Predictor", layout="centered")
+st.title("User Frustration Prediction")
 st.markdown("Enter a product review, and this app will tell you whether the customer was **frustrated** or not.")
 
 # ======================= REVIEW INPUT ============================
-review = st.text_area("📝 Write your review here:", height=150)
+review = st.text_area("Write your review here:", height=150)
 
 if st.button("Predict Frustration Level"):
     if review.strip() == "":
@@ -53,9 +53,9 @@ if st.button("Predict Frustration Level"):
         score = prediction['score']
 
         if label == "LABEL_1":
-            st.error(f"😠 Frustrated (Confidence: {score:.2%})")
+            st.error(f" Not satisfied (Confidence: {score:.2%})")
         else:
-            st.success(f"😊 Not Frustrated (Confidence: {score:.2%})")
+            st.success(f"Satisfied (Confidence: {score:.2%})")
 
 # ======================= FILE UPLOAD ============================
 st.markdown("## 📄 Bulk Prediction (Upload CSV)")
@@ -101,7 +101,7 @@ if uploaded_file is not None:
         df['token_count'] = df[review_column].apply(lambda x: len(tokenizer.tokenize(str(x))))
         long_count = df[df['token_count'] > MAX_LEN].shape[0]
         if long_count > 0:
-            st.warning(f"⚠️ {long_count} reviews were longer than {MAX_LEN} tokens and were truncated.")
+            st.warning(f"{long_count} reviews were longer than {MAX_LEN} tokens and were truncated.")
 
         with st.spinner("🔍 Analyzing reviews..."):
             df['Frustration_Prediction'] = df[review_column].apply(predict_label_safe)
@@ -159,4 +159,4 @@ if uploaded_file is not None:
 
 # ======================= FOOTER ============================
 st.markdown("---")
-st.markdown("<div style='text-align: center;'>Made with ❤️ by Ashmita Sharma</div>", unsafe_allow_html=True)
+# st.markdown("<div style='text-align: center;'>Made by Ashmita Sharma</div>", unsafe_allow_html=True)
